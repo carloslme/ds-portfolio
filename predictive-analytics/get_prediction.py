@@ -1,35 +1,30 @@
 from flask import Flask, render_template, request, redirect, url_for
 from joblib import load
+import numpy as np
 
 # load the pipeline object
-pipeline = load("text_classification.joblib")
+model = load("D:\Cursos\ds-portfolio\ds-portfolio\predictive-analytics\ciclist-accident-classification.joblib")
 
-def requestResults(name):
-    tweets = get_related_tweets(name)
-    tweets['prediction'] = pipeline.predict(tweets['tweet_text'])
-    data = str(tweets.prediction.value_counts()) + '\n\n'
-    return data + str(tweets)
+
+def requestResults():
+    values = np.array([19.47, -99.12, 1.0, 1.0, 3.0, 20.0])
+    prediction = model.predict(values.reshape(1, -1))
+    return prediction
 
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def home():
-    return render_template('home.html')
+def index():
+    return render_template('index.html')
 
 
 @app.route('/', methods=['POST', 'GET'])
 def get_data():
     if request.method == 'POST':
-        user = request.form['search']
-        return redirect(url_for('success', name=user))
+        pass
+    return 'Hola prrosss'
 
-
-@app.route('/success/<name>')
-def success(name):
-    return "<xmp>" + str(requestResults(name)) + " </xmp> "
-
-
-if __name__ == '__main__' :
+if __name__ == '__main__':
     app.run(debug=True)
