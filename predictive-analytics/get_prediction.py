@@ -24,7 +24,15 @@ def index():
 @app.route('/', methods=['POST', 'GET'])
 def get_data():
     if request.method == 'POST':
-        requestResults()
+        latitude = request.form['latitude']
+        longitude = request.form['longitude']
+        day = request.form['day']
+        time = request.form['time']
+        print(latitude)
+        print(longitude)
+        print(day)
+        print(time)
+        #requestResults()
         return 'Hola prrosss'
 
 if __name__ == '__main__':
