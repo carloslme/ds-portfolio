@@ -12,6 +12,9 @@ def requestResults():
     prediction = model.predict(values.reshape(1, -1))
     return prediction
 
+def preprocess_data(latitude, longitude, day, time):
+    data = [latitude, longitude ]
+    return data
 
 app = Flask(__name__)
 
@@ -28,11 +31,7 @@ def get_data():
         longitude = request.form['longitude']
         day = request.form['day']
         time = request.form['time']
-        print(latitude)
-        print(longitude)
-        print(day)
-        print(time)
-        #requestResults()
+        requestResults(preprocess_data(latitude, longitude, day, time))
         return 'Hola prrosss'
 
 if __name__ == '__main__':
