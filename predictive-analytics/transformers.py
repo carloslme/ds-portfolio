@@ -1,25 +1,27 @@
 import datetime
 import locale
-locale.setlocale(locale.LC_TIME, 'es')
+locale.setlocale(locale.LC_TIME, 'es') # transform day to Spanish day due to days dictionary
 import dictionaries
 
 def transform_day(date):
-    #dt = '2021-07-08'
-    # parsing date to datetime and extract day in Spanish
+    """ This function transforms a date and return a number
+
+    Args:
+        date (string): Date in format 2021-07-18
+
+    Returns:
+        int: number defined in days dictionary
+    """    
+    # parsing date to datetime
     year, month, day = (int(x) for x in date.split('-'))    
     ans = datetime.date(year, month, day)
-    key = ans.strftime("%A").capitalize()
-    print(key)
+    key = ans.strftime("%A").capitalize() 
 
-    # get key of day from data dictionary
-    key = {k:dictionaries.days[k] for k in key if k in dictionaries.days}
-    print(key)
-    print(ans.strftime("%A").capitalize() in dictionaries.days)
-    ''' mydict = {'one': 1, 'two': 2, 'three': 3}
-    mykeys = ['three', 'one','ten']
-    newList={k:mydict[k] for k in mykeys if k in mydict}
-    print (newList)
-    {'three': 3, 'one': 1}'''
+    # get key of day from data dictionary using day in Spanish
+    if key in dictionaries.days:
+        return dictionaries.days[key]
+    else:
+        return -1 
     
     
 
