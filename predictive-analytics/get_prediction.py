@@ -33,7 +33,12 @@ def get_data():
         town = request.form['town']
         day = request.form['day']
         time = request.form['time']
-        requestResults(preprocess_data(latitude, longitude, day, time))
+        print(latitude)
+        print(longitude)
+        print(town)
+        print(day)
+        print(time)
+        #requestResults(preprocess_data(latitude, longitude, day, time))
         return 'Hola prrosss'
 
 if __name__ == '__main__':
