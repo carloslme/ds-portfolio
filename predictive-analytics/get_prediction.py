@@ -7,8 +7,9 @@ model = load("D:\Cursos\ds-portfolio\ds-portfolio\predictive-analytics\ciclist-a
 
 
 def requestResults():
-    # [latitud, longitud, dia_semana, clas_con_f_alarma, tipo_entrada, hora_creacion, incidente_c4]
-    values = np.array([19.47, -99.12, 1.0, 1.0, 3.0, 20.0])
+    # [latitud, longitud, dia_semana, clas_con_f_alarma, tipo_entrada, hora_creacion]
+    # [latitud, longitud, dia_semana, delegacion_inicio, hora_creacion]
+    values = np.array([19.47, -99.12, 1.0, 19.0])
     prediction = model.predict(values.reshape(1, -1))
     return prediction
 
@@ -29,6 +30,7 @@ def get_data():
     if request.method == 'POST':
         latitude = request.form['latitude']
         longitude = request.form['longitude']
+        town = request.form['town']
         day = request.form['day']
         time = request.form['time']
         requestResults(preprocess_data(latitude, longitude, day, time))

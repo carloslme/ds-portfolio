@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I will Survive?</title>
 </head>
+
 <body>
-    <h2>¿Qué tan probable es que tenga un accidente en mi bicicleta?</h2>
-    <form action="http://localhost:5000" method="post">
+    <h2>¿Puedo sufrir un accidente en mi bicicleta?</h2>
+    <form action="http://localhost:5000" method="post" id="prediction">
         <div>
             <p>Ingresa tu latitud</p>
             <input type="number" placeholder="latitud" name="latitude">
@@ -22,6 +24,27 @@
             <input type="date" name="day">
         </div>
         <div>
+            <p>Ingresa la delegación/alcaldía</p>
+            <select name="towns" id="town" form="prediction">
+                <option value="azcapotzalco">Azcapotzalco</option>
+                <option value="coyoacan">Coyoacán</option>
+                <option value="cuajimalpa">Cuajimalpa de Morelos</option>
+                <option value="gam">Gustavo A. Madero</option>
+                <option value="iztacalco">Iztacalco</option>
+                <option value="iztapalapa">Iztapalapa</option>
+                <option value="magdalena">La Magdalena Contreras</option>
+                <option value="milpa">Milpa Alta</option>
+                <option value="alvaro">Álvaro Obregón</option>
+                <option value="tlahuac">Tláhuac</option>
+                <option value="tlalpan">Tlalpan</option>
+                <option value="xochimilco">Xochimilco</option>
+                <option value="benito">Benito Juárez</option>
+                <option value="cuauhtemoc">Cuauhtémoc</option>
+                <option value="miguel">Miguel Hidalgo</option>
+                <option value="venustiano">Venustiano Carranza</option>
+            </select>
+        </div>
+        <div>
             <p>Ingresa la hora actual</p>
             <input type="time" name="time">
         </div>
@@ -32,4 +55,5 @@
     </form>
 
 </body>
+
 </html>
