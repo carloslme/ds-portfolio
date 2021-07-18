@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
 from joblib import load
 import numpy as np
+import transformers
 
-# load the pipeline object
+# load the pipeline object1
 model = load("D:\Cursos\ds-portfolio\ds-portfolio\predictive-analytics\ciclist-accident-classification.joblib")
 
 
@@ -33,11 +34,8 @@ def get_data():
         town = request.form['town']
         day = request.form['day']
         time = request.form['time']
-        print(latitude)
-        print(longitude)
-        print(town)
         print(day)
-        print(time)
+        transformers.transform_day(day)
         #requestResults(preprocess_data(latitude, longitude, day, time))
         return 'Hola prrosss'
 
