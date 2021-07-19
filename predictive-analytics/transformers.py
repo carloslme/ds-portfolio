@@ -19,16 +19,25 @@ def transform_day(date):
 
     # get key of day from data dictionary using day in Spanish
     if key in dictionaries.days:
+        print('Day OK')
         return dictionaries.days[key]
     else:
+        print('Day No OK')
         return -1 
     
     
 
 def transform_geo(lat, lon):
-    pass
+    #The latitude must be a number between -90 and 90 and the longitude between -180 and 180
+    if -90 <= int(lat) <= 90 and -180 <= int(lon) <= 180:
+        print('Geo OK')
+        return lat, lon
+    else:
+        print('Geo No OK')
+        return 'Error'
 
 def transform_town(town):
+    
     pass
 
 def transform_time(time):
