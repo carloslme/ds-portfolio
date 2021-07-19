@@ -27,12 +27,12 @@ def transform_day(date):
 
 def transform_geo(lat, lon):
     #The latitude must be a number between -90 and 90 and the longitude between -180 and 180
-    if -90 <= int(lat) <= 90 and -180 <= int(lon) <= 180:
+    if -90 <= float(lat) <= 90 and -180 <= float(lon) <= 180:
         print('Geo OK')
         return lat, lon
     else:
         print('Geo No OK')
-        return 'Error'
+        raise ValueError 
 
 def transform_town(town):
     if town in dictionaries.towns:
