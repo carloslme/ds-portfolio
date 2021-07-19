@@ -24,8 +24,6 @@ def transform_day(date):
     else:
         print('Day No OK')
         return -1 
-    
-    
 
 def transform_geo(lat, lon):
     #The latitude must be a number between -90 and 90 and the longitude between -180 and 180

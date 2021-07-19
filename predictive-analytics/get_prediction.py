@@ -7,16 +7,19 @@ import transformers as t
 model = load("D:\Cursos\ds-portfolio\ds-portfolio\predictive-analytics\ciclist-accident-classification.joblib")
 
 
-def requestResults():
+def requestResults(data):
     # [latitud, longitud, dia_semana, clas_con_f_alarma, tipo_entrada, hora_creacion]
     # [latitud, longitud, dia_semana, delegacion_inicio, hora_creacion]
     values = np.array([19.47, -99.12, 1.0, 19.0])
-    prediction = model.predict(values.reshape(1, -1))
+    prediction = model.predict(np.array(data).reshape(1, -1))
     return prediction
 
-def preprocess_data(latitude, longitude, day, time):
-    data = [latitude, longitude ]
-    return data
+def preprocess_data(latitude, longitude, day, town, time):
+    latitude, longitude = t.transform_geo(latitude, longitude)
+    town = t.transform_town(town) 
+    day = t.transform_day(day)
+    time = t.transform_time(time)
+    return [latitude, longitude, day, town, time]
 
 app = Flask(__name__)
 
@@ -34,13 +37,10 @@ def get_data():
         town = request.form['town']
         day = request.form['day']
         time = request.form['time']
-        print(t.transform_day(day))
-        print(t.transform_geo(latitude, longitude))
-        print(t.transform_town(town))
-        print(t.transform_time(time))
-
-        #requestResults(preprocess_data(latitude, longitude, day, time))
-        return 'Holiis'
+        
+        data_transformed = preprocess_data(latitude, longitude, day, town, time)
+        response = requestResults(data_transformed)
+        return '{}'.format(str(response))
 
 if __name__ == '__main__':
     app.run(debug=True)
