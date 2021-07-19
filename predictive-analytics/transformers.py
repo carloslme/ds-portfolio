@@ -45,4 +45,10 @@ def transform_town(town):
         return -1
 
 def transform_time(time):
-    pass
+    if 0 <= int(str(time)[:2]) <= 24:
+        print('Time OK')
+        return str(time)[:2]
+    else:
+        print('Time No OK')
+        return -1
+    
