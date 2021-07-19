@@ -34,9 +34,10 @@ def get_data():
         town = request.form['town']
         day = request.form['day']
         time = request.form['time']
-        print(day)
         day = t.transform_day(day)
         t.transform_geo(latitude, longitude)
+        t.transform_town(town)
+
         #requestResults(preprocess_data(latitude, longitude, day, time))
         return 'Holiis'
 

@@ -37,8 +37,12 @@ def transform_geo(lat, lon):
         return 'Error'
 
 def transform_town(town):
-    
-    pass
+    if town in dictionaries.towns:
+        print('Town OK')
+        return dictionaries.towns[town]
+    else:
+        print('Town No OK')
+        return -1
 
 def transform_time(time):
     pass
