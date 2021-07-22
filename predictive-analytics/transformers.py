@@ -33,10 +33,10 @@ def transform_geo(lat, lon):
         lon (string): The people longitude
 
     Raises:
-        ValueError: If the latitude or longitude are not in the defined ranges
+        ValueError: If the latitude or longitude are not in the defined ranges.
 
     Returns:
-        Two values: The latitude and longitude checked
+        Two values: The latitude and longitude checked.
     """    
     #The latitude must be a number between -90 and 90 and the longitude between -180 and 180
     if -90 <= float(lat) <= 90 and -180 <= float(lon) <= 180:
@@ -47,6 +47,15 @@ def transform_geo(lat, lon):
         raise ValueError 
 
 def transform_town(town):
+    """This function evaluates if the town received is in the approved towns list.
+
+    Args:
+        town (string): Town selected in the UI.
+
+    Returns:
+        string: Value defined and corresponding in the towns dictionary.
+    """    
+    
     if town in dictionaries.towns:
         print('Town OK')
         return dictionaries.towns[town]
