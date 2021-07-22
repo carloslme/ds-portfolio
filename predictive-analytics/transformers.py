@@ -26,6 +26,18 @@ def transform_day(date):
         return -1 
 
 def transform_geo(lat, lon):
+    """This function tranform the latitude and longitude, it also evaluates if the number between ranges
+
+    Args:
+        lat (string): The people latitude
+        lon (string): The people longitude
+
+    Raises:
+        ValueError: If the latitude or longitude are not in the defined ranges
+
+    Returns:
+        Two values: The latitude and longitude checked
+    """    
     #The latitude must be a number between -90 and 90 and the longitude between -180 and 180
     if -90 <= float(lat) <= 90 and -180 <= float(lon) <= 180:
         print('Geo OK')
