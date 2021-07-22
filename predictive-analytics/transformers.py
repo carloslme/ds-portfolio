@@ -26,7 +26,8 @@ def transform_day(date):
         return -1 
 
 def transform_geo(lat, lon):
-    """This function tranform the latitude and longitude, it also evaluates if the number between ranges
+    """This function tranform the latitude and longitude, it also evaluates if the number between ranges.txt
+       The latitude must be a number between -90 and 90 and the longitude between -180 and 180
 
     Args:
         lat (string): The people latitude
@@ -38,7 +39,7 @@ def transform_geo(lat, lon):
     Returns:
         Two values: The latitude and longitude checked.
     """    
-    #The latitude must be a number between -90 and 90 and the longitude between -180 and 180
+
     if -90 <= float(lat) <= 90 and -180 <= float(lon) <= 180:
         print('Geo OK')
         return lat, lon
@@ -55,7 +56,7 @@ def transform_town(town):
     Returns:
         string: Value defined and corresponding in the towns dictionary.
     """    
-    
+
     if town in dictionaries.towns:
         print('Town OK')
         return dictionaries.towns[town]
@@ -64,6 +65,14 @@ def transform_town(town):
         return -1
 
 def transform_time(time):
+    """This function transforms the time in format H:M and extracts just the hour, for example: 19:23 to 19
+
+    Args:
+        time (string): Time selected in the UI.
+
+    Returns:
+        string: Just the hour.
+    """    
     if 0 <= int(str(time)[:2]) <= 24:
         print('Time OK')
         return str(time)[:2]
