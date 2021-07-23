@@ -1,6 +1,6 @@
 import datetime
 import locale
-locale.setlocale(locale.LC_TIME, 'es') # transform day to Spanish day due to days dictionary
+locale.setlocale(locale.LC_TIME, 'es_ES') # transform day to Spanish day due to days dictionary
 import dictionaries
 
 def transform_day(date):

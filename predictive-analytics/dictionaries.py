@@ -25,3 +25,6 @@ towns = {
     'miguel': 14,
     'venustiano': 15,
 }
+accidents = {
+    'accidente-choque con lesionados': 0,
+}
