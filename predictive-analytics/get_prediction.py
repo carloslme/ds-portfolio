@@ -4,7 +4,8 @@ import numpy as np
 import transformers as t
 
 # load the pipeline object1
-model = load("predictive-analytics\ciclist-accident-classification.joblib")
+#model = load("predictive-analytics\ciclist-accident-classification.joblib")
+model = load("ciclist-accident-classification.joblib")
 
 
 def requestResults(data):
