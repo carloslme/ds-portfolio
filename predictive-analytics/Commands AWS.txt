@@ -1,4 +1,4 @@
 -- Commands to connect to instance AWS Free Tier
-$ ssh -i ds-portfolio.pem ubuntu@ ec2-18-216-106-224.us-east-2.compute.amazonaws.com
+$ ssh -i "ds-portfolio.pem" ubuntu@ec2-3-138-67-215.us-east-2.compute.amazonaws.com
 
 https://medium.com/techfront/step-by-step-visual-guide-on-deploying-a-flask-application-on-aws-ec2-8e3e8b82c4f7
