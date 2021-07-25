@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/ubuntu/porfolio
+WorkingDirectory=/home/ubuntu/porftolio
 ExecStart=/home/ubuntu/porfolio/venv/bin/gunicorn -b localhost:8000 app:app
 Restart=always
 

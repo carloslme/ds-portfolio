@@ -29,6 +29,18 @@
 3. Exit Gunicorn 
  - $ Ctrl + C
 
+-- Commands to use systemd to manage Gunicorn
+1. Create a portfolio.service file 
+ - $ sudo nano /etc/systemd/system/portfolio.service
+ // Copy and paste the porfolio.service.txt content in the file inside EC2
+ - $ Right click, Ctrl+X, Y, Enter
+2. Enable the service
+ - $ sudo systemctl daemon-reload
+ - $ sudo systemctl start portfolio
+ - $ sudo systemctl enable portfolio
+3. Check if the app is running
+ - $ curl localhost:8000
+
 -- Commands to connect to instance AWS Free Tier
 $ ssh -i "ds-portfolio.pem" ubuntu@ec2-3-138-67-215.us-east-2.compute.amazonaws.com
 
