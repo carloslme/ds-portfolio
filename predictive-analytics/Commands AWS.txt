@@ -1,8 +1,33 @@
+-- Commands to clone Flask application inside EC2
+1. Install Python Virtualenv 
+ - $ sudo apt-get update
+ - $ sudo apt-get install python3-venv
+
+2. Activate the new virtual environment in a new directory
+// Create directory
+ - $ mkdir portfolio
+ - $ cd portfolio
+// Create the virtual environment
+ - $ python3 -m venv venv
+// Activate the virtual environment
+ - $ source venv/bin/activate
+// Install Flask
+ - $ pip install Flask
+
+3. Clone Github project
+ - $ git clone https://github.com/carloslme/ds-portfolio.git
+4. Go to code directory
+ - $ cd ds-portfolio/predictive-analytics
+5. Verify if it works by running 
+- $ python get_prediction.py
+
 -- Commands to run Gunicorn server to serve the Flask Application
-1. Go to folder - $ cd porfolio/ds-portfolio/predictive-analytics
-2. Install Gunicorn using — $ pip install gunicorn
-3. Run Gunicorn — $ gunicorn -b 0.0.0.0:8000 get_prediction:app
-4. Exit Gunicorn - $ Ctrl + C
+1. Install Gunicorn using 
+ - $ pip install gunicorn
+2. Run Gunicorn 
+ - $ gunicorn -b 0.0.0.0:8000 get_prediction:app
+3. Exit Gunicorn 
+ - $ Ctrl + C
 
 -- Commands to connect to instance AWS Free Tier
 $ ssh -i "ds-portfolio.pem" ubuntu@ec2-3-138-67-215.us-east-2.compute.amazonaws.com
