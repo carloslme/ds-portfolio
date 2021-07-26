@@ -6,7 +6,7 @@ After=network.target
 User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/porftolio
-ExecStart=/home/ubuntu/porfolio/venv/bin/gunicorn -b localhost:8000 app:app
+ExecStart=/home/ubuntu/portfolio/venv/bin/gunicorn -b localhost:8000 get_prediction:appz
 Restart=always
 
 [Install]

@@ -47,8 +47,29 @@
 2. Start the Nginx service and go to the Public IP address of your EC2 on the browser to see the default nginx landing page
  - $ sudo systemctl start nginx
  - $ sudo systemctl enable nginx
+3. Edit the default file in the sites-available folder
+ - $ sudo nano /etc/nginx/sites-available/default
+ // Add the following code at the top of the file 
+ upstream flaskportfolio {
+    server 127.0.0.1:8000;
+ }
+
+ // Add a proxy_pass to flaskportfolio at location / 
+ location / {
+    proxy_pass http://flaskportfolio;
+ }
+ // Save changes
+ Ctrl+X, Y, Enter
+4. Restart Nginx
+ - $ sudo systemctl restart nginx
+
+-- Commands to create a uWSGI
+ - $ nano portfolio.ini
+ // Add the content found in the portfolio.ini
 
 -- Commands to connect to instance AWS Free Tier
 $ ssh -i "ds-portfolio.pem" ubuntu@ec2-3-138-67-215.us-east-2.compute.amazonaws.com
 
 https://medium.com/techfront/step-by-step-visual-guide-on-deploying-a-flask-application-on-aws-ec2-8e3e8b82c4f7
+
+/home/ubuntu/portfolio/venv/bin/gunicorn --workers 3 -b 127.0.0.1:8000 -m 007 /home/ubuntu/portfolio/ds-portfolio/predictive-analytics/get_prediction:app
