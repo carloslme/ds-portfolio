@@ -6,7 +6,8 @@ After=network.target
 User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/porftolio
-ExecStart=/home/ubuntu/portfolio/venv/bin/gunicorn -b localhost:8000 get_prediction:appz
+Environment="PATH=/home/ubuntu/portfolio/venv/bin"
+ExecStart=/home/ubuntu/portfolio/venv/bin/uwsgi --ini portfolio.ini
 Restart=always
 
 [Install]

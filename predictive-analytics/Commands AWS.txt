@@ -29,6 +29,10 @@
 3. Exit Gunicorn 
  - $ Ctrl + C
 
+-- Commands to create a uWSGI
+ - $ nano portfolio.ini
+ // Add the content found in the portfolio.ini
+
 -- Commands to use systemd to manage Gunicorn
 1. Create a portfolio.service file 
  - $ sudo nano /etc/systemd/system/portfolio.service
@@ -63,9 +67,6 @@
 4. Restart Nginx
  - $ sudo systemctl restart nginx
 
--- Commands to create a uWSGI
- - $ nano portfolio.ini
- // Add the content found in the portfolio.ini
 
 -- Commands to connect to instance AWS Free Tier
 $ ssh -i "ds-portfolio.pem" ubuntu@ec2-3-138-67-215.us-east-2.compute.amazonaws.com
