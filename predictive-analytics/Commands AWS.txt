@@ -72,5 +72,6 @@
 $ ssh -i "ds-portfolio.pem" ubuntu@ec2-3-138-67-215.us-east-2.compute.amazonaws.com
 
 https://medium.com/techfront/step-by-step-visual-guide-on-deploying-a-flask-application-on-aws-ec2-8e3e8b82c4f7
+https://medium.com/geekculture/84af8989d065
 
 /home/ubuntu/portfolio/venv/bin/gunicorn --workers 3 -b 127.0.0.1:8000 -m 007 /home/ubuntu/portfolio/ds-portfolio/predictive-analytics/get_prediction:app
